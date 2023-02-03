@@ -45,7 +45,10 @@ class MyApp extends StatelessWidget {
         'start':(context) => const StartPage(),
         'error':(context) => const ErrorPage()
       },
-      //theme: ThemeData.dark()//ThemeData(primaryColor: Color.fromARGB(255, 187, 17, 17)),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color.fromARGB(255, 190, 239, 201),
+        //useMaterial3: true
+      ),
     );  
   }
 }

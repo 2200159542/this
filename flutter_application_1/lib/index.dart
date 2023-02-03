@@ -3,7 +3,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../common/Net.dart';
-import './pages/home/MainBody.dart';
+import 'pages/home/HomePage.dart';
+import 'pages/search/SearchPage.dart';
+import 'pages/like/FavoritPage.dart';
+import 'pages/account/AccountPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  var body = <Widget>[const MainBody(), const MainList()];
+  var body = <Widget>[const MainBody(), const SearchPage(),const FavoritPage(),const AccountPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +49,13 @@ class _HomePageState extends State<HomePage> {
         height: 65,
         padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 10, 219, 163),
+            color: const Color.fromARGB(255, 10, 219, 163),
             borderRadius: BorderRadius.circular(40)),
         child: FloatingActionButton(
           onPressed: () {
             Navigator.pushNamed(context, '/sell');
           },
-          backgroundColor: Color.fromARGB(255, 11, 255, 186),
+          backgroundColor: const Color.fromARGB(255, 11, 255, 186),
           isExtended: true,
           child: const Icon(
             Icons.add,
@@ -129,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                 height: 65,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
-                    color: Color.fromARGB(255, 11, 255, 186)),
+                    color: const Color.fromARGB(255, 11, 255, 186)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -140,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       }),
                       icon: const Icon(Icons.home),
-                      color: _currentIndex == 0 ? Color.fromARGB(255, 6, 127, 95) : Colors.black,
+                      color: _currentIndex == 0 ? const Color.fromARGB(255, 6, 127, 95) : Colors.black,
                     ),
                     const SizedBox(
                       width: 30,
@@ -152,18 +155,32 @@ class _HomePageState extends State<HomePage> {
                         });
                       }),
                       icon: const Icon(Icons.search),
-                      color: _currentIndex == 1 ? Color.fromARGB(255, 6, 127, 95) : Colors.black,
+                      color: _currentIndex == 1 ? const Color.fromARGB(255, 6, 127, 95) : Colors.black,
                     ),
                     const SizedBox(
                       width: 90,
                     ),
                     IconButton(
-                        onPressed: (() {}), icon: const Icon(Icons.favorite)),
+                      onPressed: (() {
+                        setState(() {
+                          _currentIndex = 2;
+                        });
+                      }),
+                      icon: const Icon(Icons.favorite),
+                      color: _currentIndex == 2 ? const Color.fromARGB(255, 6, 127, 95) : Colors.black,
+                    ),
                     const SizedBox(
                       width: 30,
                     ),
                     IconButton(
-                        onPressed: (() {}), icon: const Icon(Icons.account_circle))
+                      onPressed: (() {
+                        setState(() {
+                          _currentIndex = 3;
+                        });
+                      }),
+                      icon: const Icon(Icons.account_circle),
+                      color: _currentIndex == 3 ? const Color.fromARGB(255, 6, 127, 95) : Colors.black,
+                    )
                   ],
                 ),
               ))
@@ -244,14 +261,5 @@ class drawerList extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class MainList extends StatelessWidget {
-  const MainList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

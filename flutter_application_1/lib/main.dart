@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'index.dart';
 import 'pages/search/SearchPage.dart';
 import 'pages/sell/SellPage.dart';
-import 'pages/setting/SettingPage.dart';
+import 'pages/account/AccountPage.dart';
 import 'pages/like/FavoritPage.dart';
 import 'pages/start/StartPage.dart';
 import './common/Net.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         '/search':(context) => const SearchPage(),
         '/sell':(context) => const SellPage(),
         '/favorit':(context) => const FavoritPage(),
-        '/setting':(context) => const SettingPage(),
+        '/setting':(context) => const AccountPage(),
         'start':(context) => const StartPage(),
         'error':(context) => const ErrorPage()
       },

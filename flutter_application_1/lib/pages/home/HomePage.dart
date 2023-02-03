@@ -76,30 +76,27 @@ class _MainBodyState extends State<MainBody> {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Container(
-                    //padding: const EdgeInsets.only(left: 20, bottom: 5),
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: 30,
-                          height: 30,
-                          child: ClipOval(
-                              child: Image.network(
-                            // ignore: prefer_interpolation_to_compose_strings
-                            'http://127.0.0.1:8000' +
-                                _Listdata[index]['userimage'],
-                            fit: BoxFit.fill,
-                          )),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          _Listdata[index]['username'],
-                          style: const TextStyle(fontSize: 12),
-                        )
-                      ],
-                    ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: ClipOval(
+                            child: Image.network(
+                          // ignore: prefer_interpolation_to_compose_strings
+                          'http://127.0.0.1:8000' +
+                              _Listdata[index]['userimage'],
+                          fit: BoxFit.fill,
+                        )),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        _Listdata[index]['username'],
+                        style: const TextStyle(fontSize: 12),
+                      )
+                    ],
                   )
                 ],
               ),
